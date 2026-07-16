@@ -120,6 +120,8 @@ const LOGO = `<svg class="logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/200
       <rect x="30" y="14" width="6" height="22" rx="2" fill="#b98b5c"/>
     </svg>`;
 
+const GLOBE = `<svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"/></svg>`;
+
 const FAVICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='12' fill='%23c06844'/><rect x='12' y='26' width='6' height='10' rx='2' fill='%23fff'/><rect x='21' y='20' width='6' height='16' rx='2' fill='%23fff'/><rect x='30' y='14' width='6' height='22' rx='2' fill='%23fff'/></svg>";
 
 const p = (lang, key) => PAGES.find((x) => x.key === key)[lang];
@@ -180,8 +182,9 @@ ${navItems}
       </ul>
 
       <div class="lang-switch" role="group" aria-label="${t.langLabel}">
-        <a href="${lang === "pt" ? selfHref : `../pt/${p("pt", page.key).slug}`}"${lang === "pt" ? ' class="active" aria-current="true"' : ""} lang="pt-BR" hreflang="pt-BR">PT</a>
-        <a href="${lang === "en" ? selfHref : `../en/${p("en", page.key).slug}`}"${lang === "en" ? ' class="active" aria-current="true"' : ""} lang="en" hreflang="en">EN</a>
+        ${GLOBE}
+        <a href="${lang === "pt" ? selfHref : `../pt/${p("pt", page.key).slug}`}"${lang === "pt" ? ' class="active" aria-current="true"' : ""} lang="pt-BR" hreflang="pt-BR" title="Português">PT</a>
+        <a href="${lang === "en" ? selfHref : `../en/${p("en", page.key).slug}`}"${lang === "en" ? ' class="active" aria-current="true"' : ""} lang="en" hreflang="en" title="English">EN</a>
       </div>
 
       <button class="nav-toggle" aria-label="${t.menu}" aria-controls="nav-links" aria-expanded="false"><span></span></button>
