@@ -234,6 +234,20 @@ a.card .more { color: var(--clay-dark); font-weight: 800; font-size: .9rem; marg
 .prose blockquote p:last-child { margin-bottom: 0; }
 .prose .src, .src { display: block; margin-top: .55rem; font-family: var(--font-body); font-style: normal; font-size: .82rem; font-weight: 700; color: var(--ink-mute); }
 
+/* Figuras e legendas */
+.prose figure { margin: 2em 0; }
+.prose figure img { margin: 0 0 .7rem; width: 100%; }
+.prose figcaption { font-size: .85rem; color: var(--ink-mute); text-align: center; font-style: italic; }
+.prose .figure-right { float: right; width: min(320px, 42%); margin: .2rem 0 1.2rem 1.8rem; }
+.prose .figure-right img { border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+@media (max-width: 640px) {
+  .prose .figure-right { float: none; width: 100%; margin: 1.6em 0; }
+}
+/* Diagrama (imagem em fundo claro) */
+.prose .diagram { margin: 2em auto; max-width: 620px; }
+.prose .diagram img { box-shadow: none; border: 1px solid var(--line); background: var(--paper); padding: 1rem; }
+.core-diagram { display: block; width: min(460px, 100%); margin: 2rem auto; }
+
 /* Page hero (páginas internas) */
 .page-hero { padding-block: clamp(2.6rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 2.2rem); }
 .page-hero .eyebrow { margin-bottom: .6rem; }
