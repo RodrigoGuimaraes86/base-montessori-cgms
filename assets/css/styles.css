@@ -232,6 +232,7 @@ a.card .more { color: var(--clay-dark); font-weight: 800; font-size: .9rem; marg
   font-style: italic; color: var(--ink);
 }
 .prose blockquote p:last-child { margin-bottom: 0; }
+.prose .src, .src { display: block; margin-top: .55rem; font-family: var(--font-body); font-style: normal; font-size: .82rem; font-weight: 700; color: var(--ink-mute); }
 
 /* Page hero (páginas internas) */
 .page-hero { padding-block: clamp(2.6rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 2.2rem); }

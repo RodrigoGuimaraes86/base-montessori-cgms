@@ -24,55 +24,64 @@ const PAGES = [
     key: "home",
     pt: { slug: "index.html", nav: "Início",
           title: "Montessori Reference — Referência sobre o Método Montessori",
-          desc: "Portal de referência sobre o Método Montessori: biografia de Maria Montessori, conceitos-chave, metodologia, materiais e planos de desenvolvimento." },
+          desc: "Portal de referência sobre o Método Montessori: biografia de Maria Montessori, os princípios orientadores, os planos de desenvolvimento, a lição em três tempos e a observação." },
     en: { slug: "index.html", nav: "Home",
           title: "Montessori Reference — A Reference on the Montessori Method",
-          desc: "A reference portal on the Montessori Method: Maria Montessori's biography, key concepts, methodology, materials and planes of development." },
+          desc: "A reference portal on the Montessori Method: Maria Montessori's biography, the guiding principles, the planes of development, the three-period lesson and observation." },
   },
   {
     key: "bio",
     pt: { slug: "maria-montessori.html", nav: "Maria Montessori",
           title: "Maria Montessori — Biografia | Montessori Reference",
-          desc: "A vida de Maria Montessori (1870–1952): a médica e cientista italiana que criou o Método Montessori." },
+          desc: "A vida de Maria Montessori (1870–1952): médica, educadora, feminista e pacifista, criadora do Método Montessori." },
     en: { slug: "maria-montessori.html", nav: "Maria Montessori",
           title: "Maria Montessori — Biography | Montessori Reference",
-          desc: "The life of Maria Montessori (1870–1952): the Italian physician and scientist who created the Montessori Method." },
+          desc: "The life of Maria Montessori (1870–1952): physician, educator, feminist and peacemaker, creator of the Montessori Method." },
   },
   {
-    key: "concepts",
-    pt: { slug: "conceitos-chave.html", nav: "Conceitos-chave",
-          title: "Conceitos-chave do Método Montessori | Montessori Reference",
-          desc: "Os conceitos fundamentais do Método Montessori: mente absorvente, períodos sensíveis, ambiente preparado, normalização e o papel do adulto." },
-    en: { slug: "key-concepts.html", nav: "Key Concepts",
-          title: "Key Concepts of the Montessori Method | Montessori Reference",
-          desc: "The core concepts of the Montessori Method: the absorbent mind, sensitive periods, the prepared environment, normalization and the role of the adult." },
-  },
-  {
-    key: "method",
-    pt: { slug: "metodologia.html", nav: "A Metodologia",
-          title: "A Metodologia Montessori na prática | Montessori Reference",
-          desc: "Como o Método Montessori funciona na prática: o ambiente preparado, o ciclo de trabalho, a lição em três tempos e o papel do guia." },
-    en: { slug: "methodology.html", nav: "Methodology",
-          title: "The Montessori Methodology in practice | Montessori Reference",
-          desc: "How the Montessori Method works in practice: the prepared environment, the work cycle, the three-period lesson and the role of the guide." },
-  },
-  {
-    key: "materials",
-    pt: { slug: "materiais.html", nav: "Materiais",
-          title: "Os Materiais Montessori | Montessori Reference",
-          desc: "Os materiais Montessori: objetos concretos e autocorretivos organizados por área — vida prática, sensorial, linguagem, matemática e cultura." },
-    en: { slug: "materials.html", nav: "Materials",
-          title: "The Montessori Materials | Montessori Reference",
-          desc: "The Montessori materials: concrete, self-correcting objects organized by area — practical life, sensorial, language, mathematics and culture." },
+    key: "principles",
+    pt: { slug: "principios-orientadores.html", nav: "Princípios",
+          title: "Princípios Orientadores (CGMS) | Montessori Reference",
+          desc: "Os 13 princípios fundamentais da filosofia Montessori, sistematizados pelo Center for Guided Montessori Studies (CGMS)." },
+    en: { slug: "guiding-principles.html", nav: "Principles",
+          title: "Guiding Principles (CGMS) | Montessori Reference",
+          desc: "The 13 fundamental principles of the Montessori philosophy, as systematized by the Center for Guided Montessori Studies (CGMS)." },
   },
   {
     key: "planes",
-    pt: { slug: "planos-de-desenvolvimento.html", nav: "Planos de Desenvolvimento",
+    pt: { slug: "planos-de-desenvolvimento.html", nav: "Planos",
           title: "Os Quatro Planos de Desenvolvimento | Montessori Reference",
           desc: "Os quatro planos de desenvolvimento de Maria Montessori: infância (0–6), meninice (6–12), adolescência (12–18) e maturidade (18–24)." },
-    en: { slug: "planes-of-development.html", nav: "Planes of Development",
+    en: { slug: "planes-of-development.html", nav: "Planes",
           title: "The Four Planes of Development | Montessori Reference",
           desc: "Maria Montessori's four planes of development: infancy (0–6), childhood (6–12), adolescence (12–18) and maturity (18–24)." },
+  },
+  {
+    key: "second-plane",
+    pt: { slug: "segundo-plano.html", nav: "Segundo Plano",
+          title: "O Segundo Plano (6–12 anos) | Montessori Reference",
+          desc: "O segundo plano de desenvolvimento (6–12 anos): a mente da razão, os períodos sensíveis e as tendências humanas dessa fase." },
+    en: { slug: "second-plane.html", nav: "Second Plane",
+          title: "The Second Plane (6–12 years) | Montessori Reference",
+          desc: "The second plane of development (6–12 years): the reasoning mind, the sensitive periods and the human tendencies of this stage." },
+  },
+  {
+    key: "three-period-lesson",
+    pt: { slug: "licao-em-tres-tempos.html", nav: "Lição de 3 Tempos",
+          title: "A Lição em Três Tempos | Montessori Reference",
+          desc: "A técnica da lição em três tempos: definição, associação e confirmação do conceito — e sua aplicação em cada plano e idade." },
+    en: { slug: "three-period-lesson.html", nav: "3-Period Lesson",
+          title: "The Three Period Lesson | Montessori Reference",
+          desc: "The three-period lesson technique: naming, association and confirmation of the concept — and its application at each plane and age." },
+  },
+  {
+    key: "observation",
+    pt: { slug: "observacao.html", nav: "Observação",
+          title: "A Observação e o método C.O.R.E. | Montessori Reference",
+          desc: "A observação no Método Montessori: seu propósito e o processo C.O.R.E. (Connect, Obtain, Reflect, Engage) de Paul Epstein." },
+    en: { slug: "observation.html", nav: "Observation",
+          title: "Observation and the C.O.R.E. process | Montessori Reference",
+          desc: "Observation in the Montessori Method: its purpose and Paul Epstein's C.O.R.E. process (Connect, Obtain, Reflect, Engage)." },
   },
 ];
 
@@ -132,9 +141,9 @@ function render(lang, page) {
     return `        <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
   }).join("\n");
 
-  const footerNav = ["home", "bio", "concepts", "method"]
+  const footerNav = ["home", "bio", "principles", "planes"]
     .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
-  const footerMore = ["materials", "planes"]
+  const footerMore = ["second-plane", "three-period-lesson", "observation"]
     .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
 
   return `<!DOCTYPE html>
