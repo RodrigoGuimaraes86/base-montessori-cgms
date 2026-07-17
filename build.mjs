@@ -143,7 +143,19 @@ const EXTRAS = [
   },
 ];
 
-const ALL = [...PAGES, ...EXTRAS];
+const REFS = [
+  {
+    key: "references",
+    pt: { slug: "referencias.html", nav: "Referências",
+          title: "Referências | Montessori Reference",
+          desc: "Bibliografia e fontes citadas — obras de Maria Montessori (fontes primárias) e estudos e comentadores (fontes secundárias)." },
+    en: { slug: "references.html", nav: "References",
+          title: "References | Montessori Reference",
+          desc: "Bibliography and cited sources — works by Maria Montessori (primary sources) and studies and commentators (secondary sources)." },
+  },
+];
+
+const ALL = [...PAGES, ...EXTRAS, ...REFS];
 
 /* ---------- Estrutura da navegação (triângulo Montessori) ---------- */
 const NAV = [
@@ -231,7 +243,7 @@ ${subItems}
         </li>`;
   }).join("\n");
 
-  const footerTop = ["home", "bio", "principles"]
+  const footerTop = ["home", "bio", "principles", "references"]
     .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
   const footerCols = NAV.filter((it) => it.group).map((it) => {
     const links = it.keys.map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");

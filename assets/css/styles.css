@@ -272,6 +272,21 @@ a.card .more { color: var(--clay-dark); font-weight: 800; font-size: .9rem; marg
 .prose blockquote p:last-child { margin-bottom: 0; }
 .prose .src, .src { display: block; margin-top: .55rem; font-family: var(--font-body); font-style: normal; font-size: .82rem; font-weight: 700; color: var(--ink-mute); }
 
+/* Bloco de recursos "Para saber mais / Learn more" */
+.prose .resources { margin: 2.4em 0; padding: 1.5rem 1.7rem; background: var(--sage-soft); border: 1px solid color-mix(in srgb, var(--sage) 30%, var(--line)); border-radius: var(--radius); }
+.prose .resources > h3 { margin: 0 0 .85rem; font-size: 1.12rem; display: flex; align-items: center; gap: .5rem; }
+.prose .resources > h3 svg { width: 20px; height: 20px; color: var(--sage-dark); }
+.prose .resources ul { list-style: none; margin: 0; padding: 0; }
+.prose .resources li { margin: 0 0 .6rem; }
+.prose .resources li:last-child { margin-bottom: 0; }
+.res-tag { display: inline-block; font-size: .66rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; padding: .16rem .5rem; border-radius: 999px; background: var(--paper); color: var(--sage-dark); border: 1px solid color-mix(in srgb, var(--sage) 40%, var(--line)); margin-right: .5rem; }
+.res-note { font-size: .82rem; color: var(--ink-mute); margin: .7rem 0 0; }
+
+/* Página de referências */
+.refs h2 { margin-top: 2em; }
+.refs ol { padding-left: 1.3em; }
+.refs li { margin-bottom: .7em; }
+
 /* Figuras e legendas */
 .prose figure { margin: 2em 0; }
 .prose figure img { margin: 0 0 .7rem; width: 100%; }
