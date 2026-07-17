@@ -141,6 +141,15 @@ const EXTRAS = [
           title: "The Elementary Curriculum | Montessori Reference",
           desc: "The Montessori Elementary curriculum: the Cosmic Curriculum, the spiral curriculum and the principle of following the child." },
   },
+  {
+    key: "child-development",
+    pt: { slug: "desenvolvimento-infantil.html", nav: "Desenvolvimento Infantil",
+          title: "Desenvolvimento Infantil | Montessori Reference",
+          desc: "O desenvolvimento infantil em diálogo com teóricos influentes (Piaget, Vygotsky) e uma introdução às excepcionalidades de aprendizagem no Elementário." },
+    en: { slug: "child-development.html", nav: "Child Development",
+          title: "Child Development | Montessori Reference",
+          desc: "Child development in dialogue with influential theorists (Piaget, Vygotsky) and an introduction to learning exceptionalities in the elementary years." },
+  },
 ];
 
 const REFS = [
@@ -162,7 +171,7 @@ const NAV = [
   { link: "home" },
   { link: "bio" },
   { link: "principles" },
-  { group: "child", keys: ["planes", "second-plane", "normalization"] },
+  { group: "child", keys: ["planes", "second-plane", "child-development", "normalization"] },
   { group: "adult", keys: ["teacher-transformation", "observation", "three-period-lesson"] },
   { group: "environment", keys: ["prepared-environment", "classroom-materials", "class-leadership", "elementary-curriculum"] },
 ];
