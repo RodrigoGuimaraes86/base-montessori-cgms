@@ -145,6 +145,16 @@ const EXTRAS = [
 
 const ALL = [...PAGES, ...EXTRAS];
 
+/* ---------- Estrutura da navegação (triângulo Montessori) ---------- */
+const NAV = [
+  { link: "home" },
+  { link: "bio" },
+  { link: "principles" },
+  { group: "child", keys: ["planes", "second-plane", "normalization"] },
+  { group: "adult", keys: ["teacher-transformation", "observation", "three-period-lesson"] },
+  { group: "environment", keys: ["prepared-environment", "classroom-materials", "class-leadership", "elementary-curriculum"] },
+];
+
 /* ---------- Textos de interface por idioma ---------- */
 const UI = {
   pt: {
@@ -155,6 +165,7 @@ const UI = {
     langLabel: "Idioma",
     footerNav: "Navegação",
     more: "Outros",
+    groups: { child: "A Criança", adult: "O Adulto", environment: "O Ambiente" },
     footerMore: "Continue",
     footerAbout: "Um portal de referência dedicado a apresentar o Método Montessori com clareza e respeito à sua fonte.",
     footerRights: "Conteúdo educacional.",
@@ -168,6 +179,7 @@ const UI = {
     langLabel: "Language",
     footerNav: "Navigation",
     more: "More",
+    groups: { child: "The Child", adult: "The Adult", environment: "The Environment" },
     footerMore: "Continue",
     footerAbout: "A reference portal dedicated to presenting the Montessori Method with clarity and respect for its source.",
     footerRights: "Educational content.",
@@ -199,31 +211,35 @@ function render(lang, page) {
   const selfHref = self.slug;
   const otherHref = `../${other}/${p(other, page.key).slug}`;
 
-  const navItems = PAGES.map((pg) => {
-    const item = pg[lang];
-    const active = pg.key === page.key ? ' class="active"' : "";
-    return `        <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
-  }).join("\n");
-
-  const extrasActive = EXTRAS.some((pg) => pg.key === page.key);
-  const extrasItems = EXTRAS.map((pg) => {
-    const item = pg[lang];
-    const active = pg.key === page.key ? ' class="active"' : "";
-    return `            <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
-  }).join("\n");
-  const navDropdown = `        <li class="nav-sub">
-          <button type="button" class="nav-sub-btn${extrasActive ? " active" : ""}" aria-expanded="false" aria-haspopup="true">${t.more}</button>
+  const navHtml = NAV.map((it) => {
+    if (it.link) {
+      const item = p(lang, it.link);
+      const active = it.link === page.key ? ' class="active"' : "";
+      return `        <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
+    }
+    const groupActive = it.keys.includes(page.key);
+    const subItems = it.keys.map((k) => {
+      const item = p(lang, k);
+      const active = k === page.key ? ' class="active"' : "";
+      return `            <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
+    }).join("\n");
+    return `        <li class="nav-sub">
+          <button type="button" class="nav-sub-btn${groupActive ? " active" : ""}" aria-expanded="false" aria-haspopup="true">${t.groups[it.group]}</button>
           <ul class="nav-sub-list">
-${extrasItems}
+${subItems}
           </ul>
         </li>`;
+  }).join("\n");
 
-  const footerNav = ["home", "bio", "principles", "planes"]
+  const footerTop = ["home", "bio", "principles"]
     .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
-  const footerMore = ["second-plane", "three-period-lesson", "observation"]
-    .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
-  const footerExtras = EXTRAS
-    .map((pg) => `          <a href="${pg[lang].slug}">${pg[lang].nav}</a>`).join("\n");
+  const footerCols = NAV.filter((it) => it.group).map((it) => {
+    const links = it.keys.map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
+    return `        <div>
+          <h4>${t.groups[it.group]}</h4>
+${links}
+        </div>`;
+  }).join("\n");
 
   return `<!DOCTYPE html>
 <html lang="${t.htmlLang}">
@@ -255,8 +271,7 @@ ${extrasItems}
       </a>
 
       <ul class="nav-links" id="nav-links">
-${navItems}
-${navDropdown}
+${navHtml}
       </ul>
 
       <div class="lang-switch" role="group" aria-label="${t.langLabel}">
@@ -282,16 +297,9 @@ ${body.trimEnd()}
         </div>
         <div>
           <h4>${t.footerNav}</h4>
-${footerNav}
+${footerTop}
         </div>
-        <div>
-          <h4>${t.footerMore}</h4>
-${footerMore}
-        </div>
-        <div>
-          <h4>${t.more}</h4>
-${footerExtras}
-        </div>
+${footerCols}
       </div>
       <div class="footer-bottom">
         <span>© <span data-year>2026</span> Montessori Reference. ${t.footerRights}</span>
