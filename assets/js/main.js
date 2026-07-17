@@ -19,6 +19,24 @@
     });
   }
 
+  // Dropdown "Outros": clique alterna (além do hover), e fecha ao clicar fora
+  document.querySelectorAll(".nav-sub-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var li = btn.parentElement;
+      var open = li.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".nav-sub.open").forEach(function (li) {
+      if (!li.contains(e.target)) {
+        li.classList.remove("open");
+        var b = li.querySelector(".nav-sub-btn");
+        if (b) b.setAttribute("aria-expanded", "false");
+      }
+    });
+  });
+
   // Ano atual no rodapé
   var y = document.querySelectorAll("[data-year]");
   var year = new Date().getFullYear();

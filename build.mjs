@@ -85,6 +85,66 @@ const PAGES = [
   },
 ];
 
+/* ---------- Páginas do menu "Outros" (dropdown) ---------- */
+const EXTRAS = [
+  {
+    key: "class-leadership",
+    pt: { slug: "lideranca-de-classe.html", nav: "Liderança de Classe",
+          title: "Liderança de Classe | Montessori Reference",
+          desc: "Liderar uma classe Montessori: planejamento e registros, graça e cortesia, construção de comunidade, disciplina positiva e direitos e responsabilidades." },
+    en: { slug: "class-leadership.html", nav: "Class Leadership",
+          title: "Class Leadership | Montessori Reference",
+          desc: "Leading a Montessori class: planning and record keeping, grace and courtesy, community building, positive discipline, and rights and responsibilities." },
+  },
+  {
+    key: "prepared-environment",
+    pt: { slug: "ambiente-preparado.html", nav: "Ambiente Preparado",
+          title: "O Ambiente Preparado | Montessori Reference",
+          desc: "O ambiente preparado Montessori e suas diferenças no Elementário inferior (6–9) e superior (9–12)." },
+    en: { slug: "prepared-environment.html", nav: "Prepared Environment",
+          title: "The Prepared Environment | Montessori Reference",
+          desc: "The Montessori prepared environment and how it differs in Lower (6–9) and Upper (9–12) Elementary." },
+  },
+  {
+    key: "classroom-materials",
+    pt: { slug: "materiais-de-sala.html", nav: "Materiais de Sala",
+          title: "Materiais de Sala | Montessori Reference",
+          desc: "Características de materiais de qualidade (comprados e feitos à mão), a abstração materializada e o que torna um material didático." },
+    en: { slug: "classroom-materials.html", nav: "Classroom Materials",
+          title: "Classroom Materials | Montessori Reference",
+          desc: "Characteristics of quality materials (purchased and handmade), materialized abstraction, and what makes a material didactic." },
+  },
+  {
+    key: "teacher-transformation",
+    pt: { slug: "transformacao-do-professor.html", nav: "Transformação do Professor",
+          title: "A Transformação do Professor | Montessori Reference",
+          desc: "A preparação interior do adulto Montessori: o estudo de si mesmo e a passagem de instrutor a guia." },
+    en: { slug: "transformation-of-the-teacher.html", nav: "Transformation of the Teacher",
+          title: "The Transformation of the Teacher | Montessori Reference",
+          desc: "The inner preparation of the Montessori adult: the study of one's self and the passage from instructor to guide." },
+  },
+  {
+    key: "normalization",
+    pt: { slug: "normalizacao.html", nav: "Normalização",
+          title: "Normalização | Montessori Reference",
+          desc: "A normalização: como o trabalho livremente escolhido e a concentração revelam a verdadeira natureza da criança." },
+    en: { slug: "normalization.html", nav: "Normalization",
+          title: "Normalization | Montessori Reference",
+          desc: "Normalization: how freely chosen work and concentration reveal the child's true nature." },
+  },
+  {
+    key: "elementary-curriculum",
+    pt: { slug: "curriculo-elementar.html", nav: "Currículo Elementar",
+          title: "O Currículo Elementar | Montessori Reference",
+          desc: "O currículo do Elementário Montessori: o Currículo Cósmico, o currículo em espiral e o princípio de seguir a criança." },
+    en: { slug: "elementary-curriculum.html", nav: "Elementary Curriculum",
+          title: "The Elementary Curriculum | Montessori Reference",
+          desc: "The Montessori Elementary curriculum: the Cosmic Curriculum, the spiral curriculum and the principle of following the child." },
+  },
+];
+
+const ALL = [...PAGES, ...EXTRAS];
+
 /* ---------- Textos de interface por idioma ---------- */
 const UI = {
   pt: {
@@ -94,6 +154,7 @@ const UI = {
     menu: "Abrir menu",
     langLabel: "Idioma",
     footerNav: "Navegação",
+    more: "Outros",
     footerMore: "Continue",
     footerAbout: "Um portal de referência dedicado a apresentar o Método Montessori com clareza e respeito à sua fonte.",
     footerRights: "Conteúdo educacional.",
@@ -106,6 +167,7 @@ const UI = {
     menu: "Open menu",
     langLabel: "Language",
     footerNav: "Navigation",
+    more: "More",
     footerMore: "Continue",
     footerAbout: "A reference portal dedicated to presenting the Montessori Method with clarity and respect for its source.",
     footerRights: "Educational content.",
@@ -124,7 +186,7 @@ const GLOBE = `<svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="c
 
 const FAVICON = "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><rect width='48' height='48' rx='12' fill='%23c06844'/><rect x='12' y='26' width='6' height='10' rx='2' fill='%23fff'/><rect x='21' y='20' width='6' height='16' rx='2' fill='%23fff'/><rect x='30' y='14' width='6' height='22' rx='2' fill='%23fff'/></svg>";
 
-const p = (lang, key) => PAGES.find((x) => x.key === key)[lang];
+const p = (lang, key) => ALL.find((x) => x.key === key)[lang];
 
 /* ---------- Layout ---------- */
 function render(lang, page) {
@@ -143,10 +205,25 @@ function render(lang, page) {
     return `        <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
   }).join("\n");
 
+  const extrasActive = EXTRAS.some((pg) => pg.key === page.key);
+  const extrasItems = EXTRAS.map((pg) => {
+    const item = pg[lang];
+    const active = pg.key === page.key ? ' class="active"' : "";
+    return `            <li><a href="${item.slug}"${active}>${item.nav}</a></li>`;
+  }).join("\n");
+  const navDropdown = `        <li class="nav-sub">
+          <button type="button" class="nav-sub-btn${extrasActive ? " active" : ""}" aria-expanded="false" aria-haspopup="true">${t.more}</button>
+          <ul class="nav-sub-list">
+${extrasItems}
+          </ul>
+        </li>`;
+
   const footerNav = ["home", "bio", "principles", "planes"]
     .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
   const footerMore = ["second-plane", "three-period-lesson", "observation"]
     .map((k) => `          <a href="${p(lang, k).slug}">${p(lang, k).nav}</a>`).join("\n");
+  const footerExtras = EXTRAS
+    .map((pg) => `          <a href="${pg[lang].slug}">${pg[lang].nav}</a>`).join("\n");
 
   return `<!DOCTYPE html>
 <html lang="${t.htmlLang}">
@@ -179,6 +256,7 @@ function render(lang, page) {
 
       <ul class="nav-links" id="nav-links">
 ${navItems}
+${navDropdown}
       </ul>
 
       <div class="lang-switch" role="group" aria-label="${t.langLabel}">
@@ -209,6 +287,10 @@ ${footerNav}
         <div>
           <h4>${t.footerMore}</h4>
 ${footerMore}
+        </div>
+        <div>
+          <h4>${t.more}</h4>
+${footerExtras}
         </div>
       </div>
       <div class="footer-bottom">
@@ -301,7 +383,7 @@ function write(rel, content) {
 
 console.log("Gerando site bilíngue…");
 for (const lang of ["pt", "en"]) {
-  for (const page of PAGES) write(`${lang}/${page[lang].slug}`, render(lang, page));
+  for (const page of ALL) write(`${lang}/${page[lang].slug}`, render(lang, page));
 }
 write("index.html", renderRoot());
 write("404.html", render404());

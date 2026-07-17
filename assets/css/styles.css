@@ -119,14 +119,34 @@ p { margin: 0 0 1.15em; }
   .lang-switch a { padding: .28rem .44rem; }
 }
 
-.nav-links { display: flex; align-items: center; gap: .35rem; list-style: none; margin: 0; padding: 0; }
+.nav-links { display: flex; align-items: center; gap: .1rem; list-style: none; margin: 0; padding: 0; }
 .nav-links a {
-  display: inline-block; padding: .5rem .7rem; border-radius: 999px; white-space: nowrap;
-  color: var(--ink-soft); text-decoration: none; font-weight: 700; font-size: .93rem;
+  display: inline-block; padding: .48rem .56rem; border-radius: 999px; white-space: nowrap;
+  color: var(--ink-soft); text-decoration: none; font-weight: 700; font-size: .9rem;
   transition: background .2s, color .2s;
 }
 .nav-links a:hover { background: var(--sand); color: var(--ink); }
 .nav-links a.active { color: var(--clay-dark); background: var(--clay-soft); }
+
+/* Dropdown "Outros" / "More" */
+.nav-sub { position: relative; }
+.nav-sub-btn {
+  display: inline-flex; align-items: center; gap: .3rem;
+  padding: .48rem .56rem; border: none; border-radius: 999px; background: none; cursor: pointer;
+  font-family: var(--font-body); font-weight: 700; font-size: .9rem; color: var(--ink-soft);
+  white-space: nowrap; transition: background .2s, color .2s;
+}
+.nav-sub-btn::after { content: "▾"; font-size: .72em; translate: 0 1px; }
+.nav-sub:hover .nav-sub-btn, .nav-sub-btn:hover { background: var(--sand); color: var(--ink); }
+.nav-sub-btn.active { background: var(--clay-soft); color: var(--clay-dark); }
+.nav-sub-list {
+  display: none; position: absolute; top: calc(100% + 8px); right: 0; z-index: 60;
+  min-width: 250px; list-style: none; margin: 0; padding: .45rem;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow);
+}
+.nav-sub:hover .nav-sub-list, .nav-sub:focus-within .nav-sub-list, .nav-sub.open .nav-sub-list { display: block; }
+.nav-sub-list li { display: block; }
+.nav-sub-list a { display: block; padding: .55rem .85rem; border-radius: 9px; }
 
 .nav-toggle {
   display: none; background: none; border: 1px solid var(--line); border-radius: 10px;
@@ -154,6 +174,12 @@ p { margin: 0 0 1.15em; }
   }
   .nav-links.open { display: flex; }
   .nav-links a { padding: .8rem 1rem; border-radius: 12px; }
+  /* Dropdown vira grupo expandido dentro do menu mobile */
+  .nav-sub { position: static; }
+  .nav-sub-btn { display: block; width: 100%; text-align: left; padding: .8rem 1rem; cursor: default; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .1em; font-size: .78rem; }
+  .nav-sub-btn::after { content: ""; }
+  .nav-sub:hover .nav-sub-btn, .nav-sub-btn:hover { background: none; color: var(--ink-mute); }
+  .nav-sub-list { display: block; position: static; min-width: 0; padding: 0 0 0 .6rem; border: none; box-shadow: none; background: transparent; }
 }
 
 /* ---------- Botões ---------- */
@@ -299,8 +325,9 @@ a.card .more { color: var(--clay-dark); font-weight: 800; font-size: .9rem; marg
 /* ---------- Footer ---------- */
 .site-footer { background: var(--ink); color: color-mix(in srgb, #fff 78%, transparent); padding-block: 3.2rem 2rem; margin-top: var(--space); }
 .site-footer h4 { color: #fff; font-family: var(--font-body); font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1rem; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 2rem; }
-@media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; } }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.1fr; gap: 2rem; }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.8rem; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; gap: 1.6rem; } }
 .footer-grid a { color: color-mix(in srgb, #fff 78%, transparent); text-decoration: none; display: block; padding: .25rem 0; }
 .footer-grid a:hover { color: #fff; }
 .footer-brand { display: inline-flex; align-items: center; gap: .6rem; color: #fff; font-family: var(--font-display); font-size: 1.15rem; margin-bottom: .6rem; }

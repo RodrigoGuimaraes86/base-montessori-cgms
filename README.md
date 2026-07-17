@@ -71,8 +71,9 @@ Output Directory na raiz (`.`). O Vercel gera links de pré-visualização a cad
   depois rode `node build.mjs`.
 - **Cores e fontes:** ajuste as variáveis no topo de `assets/css/styles.css` (bloco `:root`).
 - **Nova página:** crie o fragmento em `content/pt/<chave>.html` e `content/en/<chave>.html`,
-  e adicione a página ao array `PAGES` em `build.mjs` (com o slug, o rótulo do menu, o título
-  e a descrição em cada idioma). Rode `node build.mjs`.
+  e adicione a página ao array `PAGES` (menu principal) ou `EXTRAS` (dropdown "Outros")
+  em `build.mjs` — com o slug, o rótulo do menu, o título e a descrição em cada idioma.
+  Rode `node build.mjs`.
 - **Imagens:** coloque os arquivos em `assets/img/` e referencie com
   `<img src="../assets/img/arquivo.jpg" alt="descrição">` (caminho relativo a partir de `pt/`
   ou `en/`).
