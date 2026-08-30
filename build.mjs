@@ -172,8 +172,8 @@ const NAV = [
   { link: "bio" },
   { link: "principles" },
   { group: "child", keys: ["planes", "second-plane", "child-development", "normalization"] },
-  { group: "adult", keys: ["teacher-transformation", "observation", "three-period-lesson"] },
-  { group: "environment", keys: ["prepared-environment", "classroom-materials", "class-leadership", "elementary-curriculum"] },
+  { group: "adult", keys: ["teacher-transformation", "observation", "three-period-lesson", "class-leadership"] },
+  { group: "environment", keys: ["prepared-environment", "classroom-materials", "elementary-curriculum"] },
 ];
 
 /* ---------- Textos de interface por idioma ---------- */
