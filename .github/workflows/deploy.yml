@@ -32,6 +32,10 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          # Reativa o Pages automaticamente se estiver desabilitado
+          # (ex.: após o repositório ter ficado privado).
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
