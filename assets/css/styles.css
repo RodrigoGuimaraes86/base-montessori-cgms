@@ -271,6 +271,8 @@ a.card .more { color: var(--clay-dark); font-weight: 800; font-size: .9rem; marg
 }
 .prose blockquote p:last-child { margin-bottom: 0; }
 .prose .src, .src { display: block; margin-top: .55rem; font-family: var(--font-body); font-style: normal; font-size: .82rem; font-weight: 700; color: var(--ink-mute); }
+/* Citação inline (no meio de parágrafos e bullets) */
+.prose .cite { font-size: .82rem; font-weight: 600; color: var(--ink-mute); }
 
 /* Bloco de recursos "Para saber mais / Learn more" */
 .prose .resources { margin: 2.4em 0; padding: 1.5rem 1.7rem; background: var(--sage-soft); border: 1px solid color-mix(in srgb, var(--sage) 30%, var(--line)); border-radius: var(--radius); }
