@@ -329,9 +329,6 @@ a.card .more { color: var(--clay-dark); font-weight: 800; font-size: .9rem; marg
 .prose .diagram img { box-shadow: none; border: 1px solid var(--line); background: var(--paper); padding: 1rem; }
 .core-diagram { display: block; width: min(460px, 100%); margin: 2rem auto; }
 
-/* Ilustração de topo do tópico */
-.topic-illus { margin: 0 0 2.2em; }
-.topic-illus svg { display: block; width: 100%; max-width: 560px; height: auto; margin-inline: auto; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(135deg, var(--cream), var(--sand)); }
 
 /* Page hero (páginas internas) */
 .page-hero { padding-block: clamp(2.6rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 2.2rem); }
